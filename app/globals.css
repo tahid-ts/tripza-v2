@@ -1,0 +1,120 @@
+@import "tailwindcss";
+@plugin 'tailwind-scrollbar';
+
+:root {
+  --background: #F7F7F7;
+  --primary: rgba(31, 31, 31, 1);
+  --body-text: #656565;
+  --stroke: #656565;
+  --input-fill: #F2F2F2;
+ 
+  ;
+}
+img,
+video,
+canvas {
+  overflow: clip; /* preferred */
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-primary: var(--primary);
+  --color-stroke: var(--stroke);
+  --color-input-fill: var(--input-fill);
+  --color-body-text: var(--body-text);
+  --font-sans: var(--font--geist-sans);
+  --font-inter: var(--font-inter);
+  --font-cormorant: var(--font-cormorant);
+}
+
+
+
+body {
+  font-family: var(--font-inter),var(--font-cormorant), system-ui, sans-serif;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fadeIn {
+  animation: fadeIn 0.5s ease forwards;
+}
+
+.animate-slideUp {
+  animation: slideUp 0.7s ease forwards;
+}
+
+.swiper-wrapper {
+  align-items: flex-end !important;
+}
+
+@layer utilities {
+
+  ::-webkit-scrollbar-corner {
+    display: none;
+  }
+
+  .hide-corner::-webkit-scrollbar-corner {
+    display: none;
+  }
+
+}
+
+
+.cc-animated {
+  transition: opacity 420ms var(--cc-ease, ease-out), transform 420ms var(--cc-ease, ease-out);
+  opacity: 1 !important;
+  transform: translateY(0) !important;
+}
+
+.cc-animated-child {
+  transition: opacity 420ms var(--cc-ease, ease-out), transform 420ms var(--cc-ease, ease-out);
+  opacity: 1 !important;
+  transform: translateY(0) !important;
+}
+
+/* Initial state — apply this class to elements before animation starts */
+.initial-state {
+  opacity: 0;
+  transform: translateY(8px);
+}
+
+/* Slide Up Animation */
+@keyframes slideUp {
+  0% {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.slideUp {
+  animation: slideUp 0.4s ease forwards;
+}
+
